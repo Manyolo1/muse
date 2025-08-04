@@ -28,7 +28,7 @@ export const ThoughtList = ({ selectedTheme, searchQuery }: ThoughtListProps) =>
         filteredThoughts = thoughtStore.getThoughtsByKeyword(searchQuery);
       }
       
-      setThoughts(filteredThoughts);
+      setThoughts(fileredThoughts);
     };
 
     updateThoughts();

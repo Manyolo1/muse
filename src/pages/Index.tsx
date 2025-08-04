@@ -1,15 +1,18 @@
+// src/pages/Index.tsx
 import { useState, useEffect } from 'react';
 import { ThoughtInput } from '@/components/ThoughtInput';
 import { ThoughtList } from '@/components/ThoughtList';
 import { ThemeManager } from '@/components/ThemeManager';
 import { SearchBar } from '@/components/SearchBar';
 import { StatsPanel } from '@/components/StatsPanel';
-import { Brain, Sparkles, Download, Upload, Settings } from 'lucide-react';
+import { Brain, Sparkles, Download, Upload, Settings, Waves } from 'lucide-react';
+import { LogoutButton } from '@/components/LogoutButton';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { aiService } from '@/lib/ai-service';
 import { thoughtStore } from '@/lib/thought-store';
 import { useToast } from '@/hooks/use-toast';
+
 
 const Index = () => {
   const [selectedTheme, setSelectedTheme] = useState<string | undefined>();
@@ -17,11 +20,10 @@ const Index = () => {
   const [isInitializing, setIsInitializing] = useState(true);
   const { toast } = useToast();
 
+
   useEffect(() => {
-    // Set dark mode by default
     document.documentElement.classList.add('dark');
-    
-    // Initialize AI service
+
     const initAI = async () => {
       try {
         await aiService.initialize();
@@ -53,7 +55,7 @@ const Index = () => {
     a.download = `thought-dump-${new Date().toISOString().split('T')[0]}.json`;
     a.click();
     URL.revokeObjectURL(url);
-    
+
     toast({
       title: "Export Complete! 📄",
       description: "Your thoughts have been exported successfully",
@@ -68,7 +70,7 @@ const Index = () => {
     reader.onload = (e) => {
       const content = e.target?.result as string;
       const success = thoughtStore.importThoughts(content);
-      
+
       if (success) {
         toast({
           title: "Import Complete! 📥",
@@ -85,6 +87,7 @@ const Index = () => {
     reader.readAsText(file);
   };
 
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
@@ -92,16 +95,17 @@ const Index = () => {
         <header className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-gradient-to-br from-[hsl(var(--neural-accent))] to-[hsl(var(--semantic-accent))] rounded-xl">
-                <Brain className="h-8 w-8 text-white" />
+              <div className="p-3 rounded-xl">
+                {/* <Brain className="h-8 w-8 text-white" /> */}
               </div>
               <div>
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-[hsl(var(--neural-accent))] to-[hsl(var(--semantic-accent))] bg-clip-text text-transparent">
-                  Thought Dump AI
+                <h1 className="text-3xl text-white font-bold bg-gradient-to-r from-[hsl(var(--neural-accent))] to-[hsl(var(--semantic-accent))] bg-clip-text text-transparent">
+                  muse.
                 </h1>
-                <p className="text-muted-foreground">Intelligent thought organization with semantic analysis</p>
+                <p className="text-muted-foreground">Let your muse flo freely. We'll take care of the organisation.</p>
               </div>
-              <Sparkles className="h-6 w-6 text-[hsl(var(--semantic-accent))] semantic-pulse" />
+              {/* <Sparkles className="h-6 w-6 text-yellow-400 semantic-pulse" /> */}
+              <Waves className="h-10 w-10 text-yellow-400 semantic-pulse" />
             </div>
             
             <div className="flex items-center gap-2">
@@ -125,6 +129,8 @@ const Index = () => {
                 />
               </label>
               
+              <LogoutButton />
+
               <Button variant="outline" size="sm">
                 <Settings className="h-4 w-4" />
               </Button>
@@ -162,9 +168,9 @@ const Index = () => {
         </div>
         
         {/* Footer */}
-        <footer className="mt-12 text-center">
+        <footer className="mt-4 text-center">
           <p className="text-sm text-muted-foreground">
-            Powered by AI semantic analysis • Built with React & Transformers.js
+            Powered by AI semantic analysis • Built with 💭 by Manya Saini
           </p>
         </footer>
       </div>

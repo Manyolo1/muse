@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
-import { Brain, Sparkles, Loader2 } from 'lucide-react';
+import { Brain, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { aiService } from '@/lib/ai-service';
 import { thoughtStore } from '@/lib/thought-store';
 
 export const ThoughtInput = () => {
@@ -17,28 +16,28 @@ export const ThoughtInput = () => {
     if (!content.trim()) return;
 
     setIsAnalyzing(true);
-    
+
     try {
-      // Analyze the thought with AI
-      const analysis = await aiService.analyzeThought(content);
-      
-      // Add to store
-      thoughtStore.addThought(content, analysis);
-      
-      // Clear input
-      setContent('');
-      
-      // Show success toast
+      // Call thoughtStore.addThought which sends content to backend and gets back categorized thought
+      const thoughtId = await thoughtStore.addThought(content);
+
+      // Find the newly added thought to get its analysis/category info
+      const addedThought = thoughtStore.getThoughts().find(t => t.id === thoughtId);
+
+      // Show success toast with categorization info from backend response
       toast({
         title: "Thought captured! 🧠",
-        description: `Categorized as ${analysis.category} with ${analysis.confidence > 0.8 ? 'high' : 'moderate'} confidence`,
+        description: addedThought
+          ? `Categorized as ${addedThought.analysis.category} `
+          : 'Thought saved successfully.',
       });
-      
+
+      setContent('');
     } catch (error) {
-      console.error('Failed to analyze thought:', error);
+      console.error('Failed to add thought:', error);
       toast({
         title: "Error",
-        description: "Failed to analyze thought. Please try again.",
+        description: "Failed to capture thought. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -50,11 +49,11 @@ export const ThoughtInput = () => {
     <Card className="p-6 neural-glow">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="flex items-center gap-2 mb-4">
-          <Brain className="h-5 w-5 text-[hsl(var(--neural-accent))]" />
+          {/* <Brain className="h-5 w-5 text-[hsl(var(--neural-accent))]" /> */}
           <h2 className="text-lg font-semibold">Capture Your Thought</h2>
-          <Sparkles className="h-4 w-4 text-[hsl(var(--semantic-accent))] semantic-pulse" />
+          {/* <Sparkles className="h-4 w-4 text-[hsl(var(--semantic-accent))] semantic-pulse" /> */}
         </div>
-        
+
         <Textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
@@ -62,16 +61,14 @@ export const ThoughtInput = () => {
           className="min-h-[120px] resize-none focus:ring-2 focus:ring-[hsl(var(--neural-accent))] transition-all duration-300"
           disabled={isAnalyzing}
         />
-        
+
         <div className="flex justify-between items-center">
-          <div className="text-sm text-muted-foreground">
-            {content.length} characters
-          </div>
-          
+          <div className="text-sm text-muted-foreground">{content.length} characters</div>
+
           <Button
             type="submit"
             disabled={!content.trim() || isAnalyzing}
-            className="bg-gradient-to-r from-[hsl(var(--neural-accent))] to-[hsl(var(--semantic-accent))] hover:from-[hsl(var(--neural-accent))]/80 hover:to-[hsl(var(--semantic-accent))]/80 transition-all duration-300"
+            className="bg-gradient-to-r from-yellow-200 to-green-300 hover:from-[hsl(var(--neural-accent))]/80 hover:to-[hsl(var(--semantic-accent))]/80 transition-all duration-300 rounded-3xl"
           >
             {isAnalyzing ? (
               <>
@@ -81,7 +78,7 @@ export const ThoughtInput = () => {
             ) : (
               <>
                 <Brain className="h-4 w-4 mr-2" />
-                Capture Thought
+                Dump Thought
               </>
             )}
           </Button>
