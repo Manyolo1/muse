@@ -8,7 +8,7 @@ Built with the **MERN Stack** and powered by **Google Gemini (LLM)**, Muse is de
 
 ---
 
-## ✨ Features
+##  Features
 
 -  **Freeform Thought Dumping**  
   Write anything, anytime — messy, unfiltered, spontaneous.
@@ -69,5 +69,6 @@ Coming soon
 
 ---
 Stay tuned. 
--manyolo :) 
+
+manyolo :) 
 
