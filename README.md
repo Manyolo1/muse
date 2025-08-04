@@ -48,6 +48,12 @@ Built with the **MERN Stack** and powered by **Google Gemini (LLM)**, Muse is de
 ---
 
 ##  App Snippets
+<img src="public/register.png" alt="Thought Input" width="600"/>
+<img src="public/login.png" alt="Thought Input" width="600"/>
+<img src="public/main.png" alt="Thought Input" width="600"/>
+<img src="public/empty.png" alt="Thought Input" width="600"/>
+<img src="public/add.png" alt="Thought Input" width="600"/>
+<img src="public/list.png" alt="Thought Input" width="600"/>
 
 
 ---
