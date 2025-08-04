@@ -1,78 +1,73 @@
-<<<<<<< HEAD
-# Welcome to your Lovable project
-
-## Project info
-
-**URL**: https://lovable.dev/projects/084ebae3-5270-494f-b3cf-d309998a529e
-
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/084ebae3-5270-494f-b3cf-d309998a529e) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/084ebae3-5270-494f-b3cf-d309998a529e) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
-=======
 # muse.
-Let your muse flow freely.
->>>>>>> 3e3fce5fdcb967a6b77cafb59d814a7e7678aff6
+
+> *Let your Muse Flo freely. We'll take care of the organization.*
+
+Muse is your intelligent, creative companion that helps you **dump thoughts without judgment** — and then **magically organizes them** for you using AI. Whether you're brainstorming, journaling, ideating, or simply venting, Muse ensures that nothing gets lost in the chaos.
+
+Built with the **MERN Stack** and powered by **Google Gemini (LLM)**, Muse is designed for modern creators, writers, thinkers, and anyone who wants to think out loud and stay effortlessly organized.
+
+---
+
+## ✨ Features
+
+-  **Freeform Thought Dumping**  
+  Write anything, anytime — messy, unfiltered, spontaneous.
+
+-  **AI-Powered Organization**  
+  Your thoughts are auto-organized into user-defined categories or new, smartly generated ones based on your personal content style and history.
+
+-  **Dynamic Categorization**  
+  Muse learns over time and adapts its tagging & sorting logic as you grow.
+
+-  **Smart Retrieval**  
+  Search or filter through past thoughts.
+
+-  **Minimal & Distraction-Free UI**  
+  Thought-first design so you can focus on what matters — expressing yourself.
+
+---
+
+##  Tech Stack
+
+- **Frontend**: React.js (with Tailwind CSS)
+- **Backend**: Node.js + Express
+- **Database**: MongoDB (Mongoose ODM)
+- **AI Integration**: Google Gemini Pro 
+- **Authentication**: JWT-based Secure Auth
+
+---
+
+##  Use Cases
+
+- Writers capturing fleeting ideas or plot twists  
+- Founders noting scattered product thoughts  
+- Students organizing study material and notes  
+- Journalers reflecting with zero structure  
+- ADHD-friendly ideation with retroactive clarity
+
+---
+
+##  App Snippets
+
+
+---
+
+
+##  Demo
+
+Coming soon
+
+---
+
+##  How It Works
+
+1. You dump your thoughts into Muse.
+2. Muse passes your raw input to Gemini, along with your content history (context-aware).
+3. Gemini returns structured tags or category suggestions.
+4. Muse stores and displays everything in a clean, categorized view.
+
+
+---
+Stay tuned. 
+-manyolo :) 
+
