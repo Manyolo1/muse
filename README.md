@@ -2,7 +2,8 @@
 
 > *Let your Muse Flo freely. We'll take care of the organization.*
 <img src="muse_logo_f.png" alt="Thought Input" width="300"/>
-Muse is your intelligent, creative companion that helps you **dump thoughts without judgment** — and then **magically organizes them** for you using AI. Whether you're brainstorming, journaling, ideating, or simply venting, Muse ensures that nothing gets lost in the chaos.
+
+Muse is your intelligent, creative companion that helps you **dump thoughts without judgment**  and then **magically organizes them** for you using AI. Whether you're brainstorming, journaling, ideating, or simply venting, Muse ensures that nothing gets lost in the chaos.
 
 Built with the **MERN Stack** and powered by **Google Gemini (LLM)**, Muse is designed for modern creators, writers, thinkers, and anyone who wants to think out loud and stay effortlessly organized.
 
